@@ -1,5 +1,5 @@
 #!/bin/sh
-# bash -c "$(curl -fsSL https://gist.github.com/jaxn/e1fd1442582141282d8bebdeec536fd8/raw)"
+# bash -c "$(curl -fsSL https://github.com/ResaleAI/laptop_setup/raw/master/rubydev_wsl.sh)"
 $rubyversion = "2.3.4"
 $railsversion = 5.1.1
 echo "Installing dependencies"
