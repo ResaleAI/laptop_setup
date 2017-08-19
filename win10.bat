@@ -2,10 +2,11 @@
 :: Run from cmd.exe in Administrative Mode
 
 :: install Chocolatey
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+WHERE choco
+IF %ERRORLEVEL% NEQ 0 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 :: install 
-choco install -y ccleaner googlechrome googledrive lastpass openvpn slack
+choco install -y -r googlechrome googledrive lastpass openvpn slack screenpresso ccleaner
 
 @ECHO OFF
 
@@ -16,7 +17,7 @@ if /I "%c%" EQU "N" goto :designchoice
 goto :devchoice
 
 :dev
-choco install -y visualstudiocode github-desktop heroku-cli awscli vcxsrv
+choco install -y -r visualstudiocode github-desktop heroku-cli awscli vcxsrv
 :: install development environment into WSL
 
 :designchoice
@@ -26,7 +27,7 @@ if /I "%c%" EQU "N" goto :analysischoice
 goto :designchoice
 
 :design
-choco install -y inkscape gimp
+choco install -y -r inkscape gimp
 
 :analysischoice
 set /P c=Will this laptop be used for analysis? [Y/N]
@@ -35,7 +36,8 @@ if /I "%c%" EQU "N" goto :cleanup
 goto :analysischoice
 
 :analysis
-choco install -y r.project r.studio
+choco install -y -r r.project r.studio
 
 :cleanup
 :: remove all the crap off the desktop
+for %i in (C:\Users\Public\Desktop\*.lnk) do del "%i"
