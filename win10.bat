@@ -19,6 +19,7 @@ goto :devchoice
 :dev
 choco install -y -r visualstudiocode github-desktop heroku-cli awscli vcxsrv
 :: install development environment into WSL
+bash -c "$(curl -fsSL https://github.com/ResaleAI/laptop_setup/raw/master/rubydev_wsl.sh)"
 
 :designchoice
 set /P c=Will this laptop be used for design? [Y/N]
