@@ -1,5 +1,6 @@
 #!/bin/sh
 # bash -c "$(curl -fsSL https://github.com/ResaleAI/laptop_setup/raw/master/rubydev_wsl.sh)"
+sudo /usr/bin/ssh-keygen -A
 $rubyversion = "2.3.4"
 $railsversion = 5.1.1
 echo "Installing dependencies"
@@ -33,7 +34,7 @@ if ! [ -x "$(command -v heroku)" ]; then
     sudo apt-get -qq update
     sudo apt-get -qq install heroku
 fi
-# Get SSH Server running 
+# Get SSH Server running
 sudo sed -i -e 's/#ListenAddress 0\.0\.0\.0/ListenAddress 0\.0\.0\.0/g' /etc/ssh/sshd_config
 sudo sed -i -e 's/UsePrivilegeSeparation yes/UsePrivilegeSeparation no/g' /etc/ssh/sshd_config
 sudo sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
