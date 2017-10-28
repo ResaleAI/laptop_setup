@@ -6,7 +6,7 @@ WHERE choco
 IF %ERRORLEVEL% NEQ 0 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 :: install 
-choco install -y -r googlechrome googledrive lastpass openvpn slack screenpresso ccleaner
+choco install -y -r googlechrome googledrive lastpass openvpn slack screenpresso \
 
 @ECHO OFF
 
@@ -17,7 +17,7 @@ if /I "%c%" EQU "N" goto :designchoice
 goto :devchoice
 
 :dev
-choco install -y -r visualstudiocode github-desktop heroku-cli awscli vcxsrv
+choco install -y -r visualstudiocode github-desktop heroku-cli awscli vcxsrv chromedriver
 :: install development environment into WSL
 bash -c "$(curl -fsSL https://github.com/ResaleAI/laptop_setup/raw/master/rubydev_wsl.sh)"
 
