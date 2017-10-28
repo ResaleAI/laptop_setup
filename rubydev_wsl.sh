@@ -40,8 +40,16 @@ sudo sed -i -e 's/UsePrivilegeSeparation yes/UsePrivilegeSeparation no/g' /etc/s
 sudo sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo sed -i -e 's/Port 22/Port 2222/g' /etc/ssh/sshd_config
 sudo service ssh restart
+# Install nvm
+cd ~
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+cd .nvm
+export NVM_DIR=$PWD
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install node 
 # Work to get capybara-webkit tests running
 echo "export DISPLAY=:0.0" >> ~/.bashrc
 sudo sed -i 's$<listen>.*</listen>$<listen>tcp:host=localhost,port=0</listen>$' /etc/dbus-1/session.conf
 ruby -v
 rails -v
+node -v
