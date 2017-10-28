@@ -50,6 +50,7 @@ nvm install node
 # Work to get capybara-webkit tests running
 echo "export DISPLAY=:0.0" >> ~/.bashrc
 sudo sed -i 's$<listen>.*</listen>$<listen>tcp:host=localhost,port=0</listen>$' /etc/dbus-1/session.conf
+sudo ln -s `which chromedriver.exe` /usr/local/bin/chromedriver
 ruby -v
 rails -v
 node -v
