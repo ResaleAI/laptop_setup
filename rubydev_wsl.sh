@@ -1,8 +1,8 @@
 #!/bin/sh
 # bash -c "$(curl -fsSL https://github.com/ResaleAI/laptop_setup/raw/master/rubydev_wsl.sh)"
 sudo /usr/bin/ssh-keygen -A
-$rubyversion = "2.3.4"
-$railsversion = 5.1.1
+$rubyversion = "2.4.4"
+$railsversion = 5.2.1
 echo "Installing dependencies"
 sudo apt-get --assume-yes -qq update
 sudo apt-get --assume-yes -qq install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs openssh-server qt5-default libqt5webkit5-dev xvfb libmagickwand-dev
@@ -42,7 +42,7 @@ sudo sed -i -e 's/Port 22/Port 2222/g' /etc/ssh/sshd_config
 sudo service ssh restart
 # Install nvm
 cd ~
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 cd .nvm
 export NVM_DIR=$PWD
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
