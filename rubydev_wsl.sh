@@ -1,8 +1,8 @@
 #!/bin/sh
 # bash -c "$(curl -fsSL https://github.com/ResaleAI/laptop_setup/raw/master/rubydev_wsl.sh)"
 sudo /usr/bin/ssh-keygen -A
-$rubyversion = "2.4.4"
-$railsversion = 5.2.1
+rubyversion=2.4.4
+railsversion=5.2.1
 echo "Installing dependencies"
 sudo apt-get --assume-yes -qq update
 sudo apt-get --assume-yes -qq install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs openssh-server qt5-default libqt5webkit5-dev xvfb libmagickwand-dev
