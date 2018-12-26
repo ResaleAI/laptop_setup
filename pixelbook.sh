@@ -24,6 +24,9 @@ sudo apt-get git-flow
 # install heroku cli
 curl https://cli-assets.heroku.com/install.sh | sh
 
+# install build tools
+sudo apt install gcc
+
 # install rbenv
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
