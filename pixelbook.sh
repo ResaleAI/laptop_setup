@@ -25,4 +25,10 @@ sudo apt-get git-flow
 curl https://cli-assets.heroku.com/install.sh | sh
 
 # install rbenv
-sudo apt install rbenv ruby-build
+sudo apt install ruby-build
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+cd ~/.rbenv && src/configure && make -C src
+echo 'export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+~/.rbenv/bin/rbenv init
+source ~/.bashrc
+rbenv install 2.5.3
