@@ -2,8 +2,9 @@
 
 echo 
 # Install VS Code
-curl -L "https://go.microsoft.com/fwlink/?LinkID=760868" > vscode.deb
-sudo apt install ./vscode.deb
+# Gets outdated too easily
+# curl -L "https://go.microsoft.com/fwlink/?LinkID=760868" > vscode.deb
+# sudo apt install ./vscode.deb
 
 # install NVM
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
