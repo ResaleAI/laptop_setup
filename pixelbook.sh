@@ -3,8 +3,10 @@
 echo "Updating packages"
 sudo apt update && sudo apt upgrade
 
-echo "Installing dependencies"
-sudo apt --assume-yes -qq install libpq-dev
+echo "Installing postgres"
+sudo apt --assume-yes -qq install postgresql libpq-dev 
+# setup postgres
+sudo -u postgres psql -c "CREATE ROLE resaleai WITH CREATEDB LOGIN SUPERUSER PASSWORD 'resaleai'"
 
 # Install VS Code
 # Gets outdated too easily
