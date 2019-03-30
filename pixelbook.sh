@@ -1,6 +1,11 @@
 #!/bin/sh
 
-echo 
+echo "Updating packages"
+sudo apt update && sudo apt upgrade
+
+echo "Installing dependencies"
+sudo apt --assume-yes -qq install libpq-dev
+
 # Install VS Code
 # Gets outdated too easily
 # curl -L "https://go.microsoft.com/fwlink/?LinkID=760868" > vscode.deb
@@ -17,7 +22,7 @@ num use 10
 # install yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt install --no-install-recommends yarn
+sudo apt install --no-install-recommends yarn
 
 # install git-flow
 sudo apt instal git-flow
